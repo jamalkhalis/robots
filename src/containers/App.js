@@ -3,6 +3,9 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry';
+import "./App.css"
+import linkedin from "./linkedin.svg";
+import github from "./github.svg";
 
 class App extends Component {
 
@@ -33,13 +36,51 @@ class App extends Component {
 		} else {
 			return (
 				<div className="tc">
-					<h2> Robots </h2>
-					<SearchBox searchChange={this.onSearchChange} />
-					<Scroll>
-						<ErrorBoundry>
-		    				<CardList robots={ filterRobots } />
-						</ErrorBoundry>
-					</Scroll>
+
+					<div className="bg-1 pv3">
+
+						<div className="header tc pv1 ph2">
+							<div>
+								<h1 className="ma0"> 
+									<img 
+										src="https://robohash.org/55" 
+										width="50rem"
+										height="50rem"
+									/>
+									<span> Robots </span>
+								</h1>
+							</div>
+							<SearchBox searchChange={this.onSearchChange} />
+						</div>
+
+						<div className="main mt3 pv3">
+							<Scroll>
+								<ErrorBoundry>
+				    				<CardList robots={ filterRobots } />
+								</ErrorBoundry>
+							</Scroll>
+						</div>
+
+					</div>
+
+					<div className="footer pv3">
+						<div className="footer-body">
+							<div className="">
+								Made with love by Jamal KHALIS.
+							</div>
+
+							<div>
+								<a href="https://github.com/jamalkhalis">
+									<img src={github} alt="" className="mr3" />
+								</a>
+
+								<a href="https://www.linkedin.com/in/jamalkhalis/">
+									<img src={linkedin} alt="" />
+								</a>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			)
 		}	
